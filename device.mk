@@ -28,6 +28,8 @@ $(call inherit-product-if-exists, vendor/xiaomi/lisa-miuicamera/products/miuicam
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
+BOARD_SHIPPING_API_LEVEL := 30
+BOARD_API_LEVEL := 33
 
 # Audio
 PRODUCT_PACKAGES += \
