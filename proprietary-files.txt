@@ -1064,7 +1064,6 @@ vendor/etc/libnfc-nxp_RF.conf
 vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 vendor/lib64/jcos_nq_client.so
 vendor/lib64/ls_nq_client.so
-vendor/lib64/se_nq_extn_client.so
 
 # NVRAM
 vendor/bin/nv_mac
