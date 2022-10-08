@@ -153,9 +153,12 @@ PRODUCT_PACKAGES += \
     libcodec2_vndk.vendor \
     libcodec2_hidl@1.0.vendor
 
-# Device-specific settings
+# Device Settings
 PRODUCT_PACKAGES += \
     XiaomiParts
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/parts/privapp-permissions-parts.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-parts.xml
 
 # Display
 PRODUCT_PACKAGES += \
@@ -183,6 +186,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     disable_configstore
+
+    PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.display.dither=true \
+    ro.vendor.display.mi_calib.enable=true \
+    ro.vendor.histogram.enable=true \
+    ro.vendor.xiaomi.bl.poll=true
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml \
