@@ -312,10 +312,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
-
 # LMK
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.lmk.force_inkernel_lmk=true
@@ -384,6 +380,7 @@ PRODUCT_PACKAGES += \
     NfcNci \
     SecureElement \
     Tag \
+    se_nq_extn_client \
     android.hardware.secure_element@1.2.vendor
 
 PRODUCT_COPY_FILES += \
