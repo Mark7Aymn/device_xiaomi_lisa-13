@@ -1091,6 +1091,7 @@ vendor/etc/libnfc-nxp_RF.conf
 vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 vendor/lib64/jcos_nq_client.so
 vendor/lib64/ls_nq_client.so
+vendor/lib64/se_nq_extn_client.so
 
 # NVRAM
 vendor/bin/nv_mac
@@ -1327,7 +1328,6 @@ vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/ls_nq_client.so
 vendor/lib64/jcos_nq_client.so
-vendor/lib64/se_nq_extn_client.so
 vendor/lib64/libchrome.so
 
 # Secure Execution Environment Communicator
