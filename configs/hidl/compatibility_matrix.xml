@@ -108,4 +108,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>qccsyshal</instance>
         </interface>
    </hal>
+   <hal format="hidl" optional="true">
+        <name>vendor.google.google_battery</name>
+        <version>1.2</version>
+        <interface>
+            <name>IGoogleBattery</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
