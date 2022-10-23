@@ -384,3 +384,7 @@ service init-sensors_fix-sh /vendor/bin/init.sensors_fix.sh
     user system
     group system
     oneshot
+
+# Battery smart charging
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0666 /sys/class/power_supply/battery/input_suspend
