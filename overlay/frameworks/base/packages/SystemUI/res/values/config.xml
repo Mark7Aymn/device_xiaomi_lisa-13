@@ -45,9 +45,12 @@
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
-    <!-- FPSInfoService FPS node file path -->
-    <string name="config_fpsInfoSysNode" translatable="false">/sys/devices/virtual/graphics/fb0/measured_fps</string>
+    <!-- Smart Charging -->
+    <bool name="config_supportSmartCharging">true</bool>
 
-    <!-- FPSInfoService FPS node file path -->
-    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
+    <!-- Battery health -->
+    <bool name="config_supportBatteryHealth">true</bool>
+    <string name="config_batteryCalculatedCapacity">/sys/class/power_supply/bms/charge_full</string>
+    <string name="config_batteryDesignCapacity">/sys/class/power_supply/bms/charge_full_design</string>
+    <string name="config_batteryChargeCycles">/sys/class/power_supply/bms/cycle_count</string>
 </resources>

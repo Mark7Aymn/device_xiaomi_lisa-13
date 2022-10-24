@@ -1,4 +1,1 @@
 type public_adsprpcd_file, file_type;
-
-# FPS Info device
-type sysfs_fps, sysfs_type, fs_type;

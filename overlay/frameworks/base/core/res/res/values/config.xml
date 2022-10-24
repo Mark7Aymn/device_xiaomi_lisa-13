@@ -491,7 +491,7 @@
 
          Refer to power.h for details.
     -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
     <!-- Flag specifying whether VoLTE is available on device -->
     <bool name="config_device_volte_available">true</bool>
@@ -628,13 +628,22 @@
     <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">true</bool>
 
+    <!-- Specifies whether the dreams feature should be supported.
+         When true, the system will allow the user to configure dreams (screensavers)
+         to launch when a user activity timeout occurs or the system is told to nap.
+         When false, the dreams feature will be disabled (this does not affect dozing).
+         Consider setting this resource to false or disabling dreams by default when a
+         doze component is specified below since dreaming will supercede dozing and
+         will prevent the system from entering a low power state until the dream ends. -->
+    <bool name="config_dreamsSupported">false</bool>
+
     <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
     <string translatable="false" name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+    <bool name="config_dozeAfterScreenOffByDefault">false</bool>
 
     <!-- Enable doze alwaysOn Display -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
@@ -644,11 +653,11 @@
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
-    <bool name="config_displayBlanksAfterDoze">true</bool>
+    <bool name="config_displayBlanksAfterDoze">false</bool>
 
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
-    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
+    <bool name="config_displayBrightnessBucketsInDoze">false</bool>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
@@ -663,7 +672,7 @@
     <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0063507572</item>
 
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
-    <bool name="config_dozePulsePickup">true</bool>
+    <bool name="config_dozePulsePickup">false</bool>
 
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
@@ -802,4 +811,37 @@
     <string name="config_smartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
     <string name="config_smartChargingSuspendValue" translatable="false">0</string>
     <string name="config_smartChargingResumeValue" translatable="false">1</string>
+
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Server audio_policy_configuration.xml file must specify a rule for
+           the "r_submix" remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
+    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
+         app standby.  These are not enabled by default because they require a standard
+         cloud-to-device messaging service for apps to interact correctly with the modes
+         (such as to be able to deliver an instant message to the device even when it is
+         dozing).  This should be enabled if you have such services and expect apps to
+         correctly use them when installed on your device.  Otherwise, keep this disabled
+         so that applications can still use their own mechanisms. -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
+    <!-- Control the behavior when the user short presses the power button.
+            0 - Nothing
+            1 - Go to sleep (doze)
+            2 - Really go to sleep (don't doze)
+            3 - Really go to sleep and go home (don't doze)
+            4 - Go to home
+            5 - Dismiss IME if shown. Otherwise go to home
+    -->
+    <integer name="config_shortPressOnPowerBehavior">1</integer>
 </resources>
