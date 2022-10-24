@@ -44,13 +44,4 @@
     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
-
-    <!-- Smart Charging -->
-    <bool name="config_supportSmartCharging">true</bool>
-
-    <!-- Battery health -->
-    <bool name="config_supportBatteryHealth">true</bool>
-    <string name="config_batteryCalculatedCapacity">/sys/class/power_supply/bms/charge_full</string>
-    <string name="config_batteryDesignCapacity">/sys/class/power_supply/bms/charge_full_design</string>
-    <string name="config_batteryChargeCycles">/sys/class/power_supply/bms/cycle_count</string>
 </resources>
