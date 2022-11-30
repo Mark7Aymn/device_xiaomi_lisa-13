@@ -60,6 +60,9 @@ on early-boot
     chown system system /mnt/vendor/persist/data/pfm/licenses
     chmod 0775 /mnt/vendor/persist/data/pfm/licenses
 
+    #Starting perf properly
+    setprop vendor.post_boot.parsed 1
+
 on boot
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
@@ -234,6 +237,13 @@ on property:sys.boot_completed=1
 
     # Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
+
+    #Starting perf properly
+    setprop vendor.post_boot.parsed 1
+
+    #chown/chmod input_suspend node as needed from mishow service
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0666 /sys/class/qcom-battery/input_suspend
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core

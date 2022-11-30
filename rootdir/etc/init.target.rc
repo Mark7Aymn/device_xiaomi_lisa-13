@@ -232,6 +232,8 @@ on boot
     chmod 0660 /sys/devices/platform/soc/a94000.i2c/i2c-2/2-0062/trusted_touch_event
     chown system /sys/devices/system/cpu/hyp_core_ctl/enable
     chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
+    #Starting perf properly
+    setprop vendor.post_boot.parsed 1
     #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
@@ -276,7 +278,7 @@ on boot
     
     #chown/chmod input_suspend node as needed from mishow service
     chown system system /sys/class/qcom-battery/input_suspend
-    chmod 777 /sys/class/qcom-battery/input_suspend
+    chmod 0666 /sys/class/qcom-battery/input_suspend
     
     #ufscld functions permission
     chown root system /sys/devices/platform/soc/1d84000.ufshc/ufscld/auto_hibern8_enable
